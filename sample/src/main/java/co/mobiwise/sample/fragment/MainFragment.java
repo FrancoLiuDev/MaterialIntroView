@@ -34,7 +34,7 @@ public class MainFragment extends Fragment implements View.OnClickListener{
         button.setOnClickListener(this);
 
         //Show intro
-        showIntro(cardView, INTRO_CARD, "This is card! Hello There. You can set this text!");
+
 
         return view;
     }
@@ -47,18 +47,5 @@ public class MainFragment extends Fragment implements View.OnClickListener{
             new PreferencesManager(getActivity().getApplicationContext()).resetAll();
     }
 
-    private void showIntro(View view, String usageId, String text){
-        new MaterialIntroView.Builder(getActivity())
-                .enableDotAnimation(true)
-                //.enableIcon(false)
-                .setFocusGravity(FocusGravity.CENTER)
-                .setFocusType(Focus.MINIMUM)
-                .setDelayMillis(200)
-                .enableFadeAnimation(true)
-                .performClick(true)
-                .setInfoText(text)
-                .setTarget(view)
-                .setUsageId(usageId) //THIS SHOULD BE UNIQUE ID
-                .show();
-    }
+
 }

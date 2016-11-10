@@ -38,29 +38,11 @@ public class RecyclerviewFragment extends Fragment implements MaterialIntroListe
         initializeRecyclerview();
         loadData();
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                showMaterialIntro();
-            }
-        }, 2000);
+
         return view;
     }
 
-    private void showMaterialIntro() {
-        new MaterialIntroView.Builder(getActivity())
-                .enableDotAnimation(true)
-                .setFocusGravity(FocusGravity.CENTER)
-                .setFocusType(Focus.MINIMUM)
-                .setDelayMillis(200)
-                .enableFadeAnimation(true)
-                .setListener(this)
-                .performClick(true)
-                .setInfoText("This intro focuses on Recyclerview item")
-                .setTarget(recyclerView.getChildAt(2))
-                .setUsageId(INTRO_CARD) //THIS SHOULD BE UNIQUE ID
-                .show();
-    }
+
 
     private void loadData() {
 

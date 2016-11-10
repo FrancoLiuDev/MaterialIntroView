@@ -58,7 +58,7 @@ public class ToolbarMenuItemActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         //show the intro view
-        showIntro(ivSearch, MENU_SEARCH_ID_TAG, getString(R.string.guide_setup_profile), FocusGravity.CENTER);
+        //showIntro(ivSearch, MENU_SEARCH_ID_TAG, getString(R.string.guide_setup_profile), FocusGravity.CENTER);
 
     }
 
@@ -132,35 +132,10 @@ public class ToolbarMenuItemActivity extends AppCompatActivity
      * @param text         Display message
      * @param focusGravity Focus Gravity of the display
      */
-    public void showIntro(View view, String id, String text, FocusGravity focusGravity) {
-        new MaterialIntroView.Builder(ToolbarMenuItemActivity.this)
-                .enableDotAnimation(true)
-                .setFocusGravity(focusGravity)
-                .setFocusType(Focus.MINIMUM)
-                .setDelayMillis(100)
-                .enableFadeAnimation(true)
-                .performClick(true)
-                .setInfoText(text)
-                .setTarget(view)
-                .setListener(this)
-                .setUsageId(id)
-                .show();
-    }
+
 
     @Override
     public void onUserClicked(String materialIntroViewId) {
-        switch (materialIntroViewId) {
-            case MENU_SEARCH_ID_TAG:
-                showIntro(mIvAbout, MENU_ABOUT_ID_TAG, getString(R.string.guide_setup_profile), FocusGravity.LEFT);
-                break;
-            case MENU_ABOUT_ID_TAG:
-                showIntro(mIvShare, MENU_SHARED_ID_TAG, getString(R.string.guide_setup_profile), FocusGravity.LEFT);
-                break;
-            case MENU_SHARED_ID_TAG:
-                Toast.makeText(ToolbarMenuItemActivity.this, "Complete!", Toast.LENGTH_SHORT).show();
-                break;
-            default:
-                break;
-        }
+
     }
 }

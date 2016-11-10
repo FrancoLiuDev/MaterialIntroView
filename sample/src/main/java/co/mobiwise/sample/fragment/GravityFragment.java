@@ -36,31 +36,14 @@ public class GravityFragment extends Fragment implements MaterialIntroListener{
         cardView2 = (CardView) view.findViewById(R.id.my_card2);
         cardView3 = (CardView) view.findViewById(R.id.my_card3);
 
-        showIntro(cardView1, INTRO_CARD1, "This intro focuses on RIGHT", FocusGravity.RIGHT);
+        //showIntro(cardView1, INTRO_CARD1, "This intro focuses on RIGHT", FocusGravity.RIGHT);
 
         return view;
     }
 
+
     @Override
     public void onUserClicked(String materialIntroViewId) {
-        if(materialIntroViewId == INTRO_CARD1)
-            showIntro(cardView2, INTRO_CARD2, "This intro focuses on CENTER.", FocusGravity.CENTER);
-        if(materialIntroViewId == INTRO_CARD2)
-            showIntro(cardView3, INTRO_CARD3, "This intro focuses on LEFT.", FocusGravity.LEFT);
-    }
 
-    public void showIntro(View view, String id, String text, FocusGravity focusGravity){
-        new MaterialIntroView.Builder(getActivity())
-                .enableDotAnimation(true)
-                .setFocusGravity(focusGravity)
-                .setFocusType(Focus.MINIMUM)
-                .setDelayMillis(200)
-                .enableFadeAnimation(true)
-                .performClick(true)
-                .setInfoText(text)
-                .setTarget(view)
-                .setListener(this)
-                .setUsageId(id) //THIS SHOULD BE UNIQUE ID
-                .show();
     }
 }

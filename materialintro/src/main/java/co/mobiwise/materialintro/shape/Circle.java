@@ -69,7 +69,7 @@ public class Circle {
         int side;
 
         if(focus == Focus.MINIMUM)
-            side = Math.min(target.getRect().width() / 2, target.getRect().height() / 2);
+            side = Math.min(target.getRect().width() / 6, target.getRect().height() / 6);
         else if(focus == Focus.ALL)
             side = Math.max(target.getRect().width() / 2, target.getRect().height() / 2);
         else{

@@ -16,6 +16,9 @@ public interface Target {
      */
     Point getPoint();
 
+
+    void setPoint(Point pos,int radius);
+
     /**
      * Returns Rectangle points of target view
      * @return

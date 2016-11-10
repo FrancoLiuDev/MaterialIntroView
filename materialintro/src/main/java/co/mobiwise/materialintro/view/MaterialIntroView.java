@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Point;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.os.Build;
@@ -362,8 +363,8 @@ public class MaterialIntroView extends RelativeLayout {
                 return true;
             case MotionEvent.ACTION_UP:
 
-                if (isTouchOnFocus || dismissOnTouch)
-                    dismiss();
+                //if (isTouchOnFocus || dismissOnTouch)
+                    //dismiss();
 
                 if (isTouchOnFocus && isPerformClick) {
                     targetView.getView().performClick();
@@ -374,6 +375,30 @@ public class MaterialIntroView extends RelativeLayout {
                 }
 
                 return true;
+            case MotionEvent.ACTION_MOVE:
+                String msg= String.format("ACTION_MOVE X=%d Y=%d",(int)xT,(int)yT);
+                Log.d("Touch Event", msg);
+                targetView.setPoint(new Point((int)xT,(int)yT),circleShape.getRadius());
+
+                setDotViewLayoutRunTime();
+                this.invalidate();
+
+                //AnimationFactory.performAnimationMove(this);
+                return true;
+
+            case MotionEvent.ACTION_OUTSIDE:
+                Log.d("Touch Event", "ACTION_OUTSIDE");
+                return true;
+
+            case MotionEvent.ACTION_HOVER_MOVE:
+                Log.d("Touch Event", "ACTION_HOVER_MOVE");
+
+                return true;
+
+            case MotionEvent.ACTION_HOVER_ENTER:
+                Log.d("Touch Event", "ACTION_HOVER_ENTER");
+                return true;
+
             default:
                 break;
         }
@@ -389,8 +414,8 @@ public class MaterialIntroView extends RelativeLayout {
      */
     private void show(Activity activity) {
 
-        if (preferencesManager.isDisplayed(materialIntroViewId))
-            return;
+       // if (preferencesManager.isDisplayed(materialIntroViewId))
+            //return;
 
         ((ViewGroup) activity.getWindow().getDecorView()).addView(this);
 
@@ -507,7 +532,31 @@ public class MaterialIntroView extends RelativeLayout {
                 addView(dotView);
 
                 dotView.setVisibility(VISIBLE);
-                AnimationFactory.performAnimation(dotView);
+                //AnimationFactory.performAnimation(dotView);
+            }
+        });
+    }
+
+    private void setDotViewLayoutRunTime() {
+
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+
+                RelativeLayout.LayoutParams dotViewLayoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+                dotViewLayoutParams.height = Utils.dpToPx(Constants.DEFAULT_DOT_SIZE);
+                dotViewLayoutParams.width = Utils.dpToPx(Constants.DEFAULT_DOT_SIZE);
+                dotViewLayoutParams.setMargins(
+                        circleShape.getPoint().x - (dotViewLayoutParams.width / 2),
+                        circleShape.getPoint().y - (dotViewLayoutParams.height / 2),
+                        0,
+                        0);
+                dotView.setLayoutParams(dotViewLayoutParams);
+                dotView.postInvalidate();
+                //addView(dotView);
+
+                dotView.setVisibility(VISIBLE);
+                //AnimationFactory.performAnimation(dotView);
             }
         });
     }
@@ -649,7 +698,7 @@ public class MaterialIntroView extends RelativeLayout {
             return this;
         }
 
-        public Builder setTarget(View view) {
+        public Builder setTarget(ImagePosView view) {
             materialIntroView.setTarget(new ViewTarget(view));
             return this;
         }

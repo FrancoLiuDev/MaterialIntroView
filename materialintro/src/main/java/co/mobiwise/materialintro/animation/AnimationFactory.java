@@ -103,4 +103,23 @@ public class AnimationFactory {
         animatorSet.start();
     }
 
+    public static void performAnimationMove(View view) {
+
+        AnimatorSet animatorSet = new AnimatorSet();
+
+
+
+        ValueAnimator scaleX = ObjectAnimator.ofFloat(view, View.X, 0.2f);
+        scaleX.setRepeatCount(ValueAnimator.INFINITE);
+        scaleX.setRepeatMode(ValueAnimator.REVERSE);
+        scaleX.setDuration(200);
+
+        ValueAnimator scaleY = ObjectAnimator.ofFloat(view, View.Y, 0.2f);
+        scaleY.setRepeatCount(ValueAnimator.INFINITE);
+        scaleY.setRepeatMode(ValueAnimator.REVERSE);
+        scaleY.setDuration(200);
+
+        animatorSet.playTogether(scaleX, scaleY);
+        animatorSet.start();
+    }
 }
