@@ -10,9 +10,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import co.mobiwise.materialintro.prefs.PreferencesManager;
-import co.mobiwise.materialintro.shape.Focus;
-import co.mobiwise.materialintro.shape.FocusGravity;
-import co.mobiwise.materialintro.view.MaterialIntroView;
 import co.mobiwise.sample.R;
 
 /**

@@ -1,7 +1,6 @@
 package co.mobiwise.sample.fragment;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -15,9 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import co.mobiwise.materialintro.animation.MaterialIntroListener;
-import co.mobiwise.materialintro.shape.Focus;
-import co.mobiwise.materialintro.shape.FocusGravity;
-import co.mobiwise.materialintro.view.MaterialIntroView;
 import co.mobiwise.sample.R;
 import co.mobiwise.sample.adapter.RecyclerViewAdapter;
 import co.mobiwise.sample.model.Song;

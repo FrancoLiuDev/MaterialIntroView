@@ -35,7 +35,6 @@ import co.mobiwise.materialintro.R;
 import co.mobiwise.materialintro.utils.Utils;
 import co.mobiwise.materialintro.shape.Circle;
 import co.mobiwise.materialintro.shape.Focus;
-import co.mobiwise.materialintro.shape.FocusGravity;
 import co.mobiwise.materialintro.target.Target;
 import co.mobiwise.materialintro.target.ViewTarget;
 
@@ -85,10 +84,7 @@ public class MaterialIntroView extends RelativeLayout {
      */
     private Focus focusType;
 
-    /**
-     * FocusGravity type
-     */
-    private FocusGravity focusGravity;
+
 
     /**
      * Target View
@@ -238,7 +234,7 @@ public class MaterialIntroView extends RelativeLayout {
         padding = Constants.DEFAULT_TARGET_PADDING;
         colorTextViewInfo = Constants.DEFAULT_COLOR_TEXTVIEW_INFO;
         focusType = Focus.ALL;
-        focusGravity = FocusGravity.CENTER;
+
         isReady = false;
         isFadeAnimationEnabled = true;
         dismissOnTouch = false;
@@ -601,9 +597,7 @@ public class MaterialIntroView extends RelativeLayout {
         this.dismissOnTouch = dismissOnTouch;
     }
 
-    private void setFocusGravity(FocusGravity focusGravity) {
-        this.focusGravity = focusGravity;
-    }
+
 
     private void setColorTextViewInfo(int colorTextViewInfo) {
         this.colorTextViewInfo = colorTextViewInfo;
@@ -641,7 +635,7 @@ public class MaterialIntroView extends RelativeLayout {
             this.dismissOnTouch = configuration.isDismissOnTouch();
             this.colorTextViewInfo = configuration.getColorTextViewInfo();
             this.focusType = configuration.getFocusType();
-            this.focusGravity = configuration.getFocusGravity();
+
         }
     }
 
@@ -693,10 +687,7 @@ public class MaterialIntroView extends RelativeLayout {
             return this;
         }
 
-        public Builder setFocusGravity(FocusGravity focusGravity) {
-            materialIntroView.setFocusGravity(focusGravity);
-            return this;
-        }
+
 
         public Builder setTarget(ImagePosView view) {
             materialIntroView.setTarget(new ViewTarget(view));
@@ -763,7 +754,7 @@ public class MaterialIntroView extends RelativeLayout {
             Circle circle = new Circle(
                     materialIntroView.targetView,
                     materialIntroView.focusType,
-                    materialIntroView.focusGravity,
+                    
                     materialIntroView.padding);
             materialIntroView.setCircle(circle);
             return materialIntroView;

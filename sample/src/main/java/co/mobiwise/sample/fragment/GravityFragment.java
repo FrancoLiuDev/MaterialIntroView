@@ -9,9 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import co.mobiwise.materialintro.animation.MaterialIntroListener;
-import co.mobiwise.materialintro.shape.Focus;
-import co.mobiwise.materialintro.shape.FocusGravity;
-import co.mobiwise.materialintro.view.MaterialIntroView;
 import co.mobiwise.sample.R;
 
 /**

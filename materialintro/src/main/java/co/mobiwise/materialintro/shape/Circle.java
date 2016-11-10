@@ -16,7 +16,7 @@ public class Circle {
 
     private Focus focus;
 
-    private FocusGravity focusGravity;
+
 
     private int radius;
 
@@ -29,13 +29,13 @@ public class Circle {
     }
 
     public Circle(Target target,Focus focus) {
-        this(target, focus, FocusGravity.CENTER, Constants.DEFAULT_TARGET_PADDING);
+        this(target, focus, Constants.DEFAULT_TARGET_PADDING);
     }
 
-    public Circle(Target target, Focus focus, FocusGravity focusGravity, int padding) {
+    public Circle(Target target, Focus focus,  int padding) {
         this.target = target;
         this.focus = focus;
-        this.focusGravity = focusGravity;
+
         this.padding = padding;
         circlePoint = getFocusPoint();
         calculateRadius(padding);
@@ -48,16 +48,8 @@ public class Circle {
     }
 
     private Point getFocusPoint(){
-        if(focusGravity == FocusGravity.LEFT){
-            int xLeft = target.getRect().left + (target.getPoint().x - target.getRect().left) / 2;
-            return new Point(xLeft, target.getPoint().y);
-        }
-        else if(focusGravity == FocusGravity.RIGHT){
-            int xRight = target.getPoint().x + (target.getRect().right - target.getPoint().x) / 2;
-            return new Point(xRight, target.getPoint().y);
-        }
-        else
-            return target.getPoint();
+
+        return target.getPoint();
     }
 
     public void reCalculateAll(){

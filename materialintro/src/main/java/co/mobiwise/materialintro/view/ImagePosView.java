@@ -16,7 +16,7 @@ import co.mobiwise.materialintro.view.CircleTargetView;
 public class ImagePosView extends ImageView implements CircleTargetView {
 
 
-    Point targetPos=new Point(0,0);
+    Point targetPos=new Point(100,100);
 
 
     public ImagePosView(Context context, AttributeSet attrs) {

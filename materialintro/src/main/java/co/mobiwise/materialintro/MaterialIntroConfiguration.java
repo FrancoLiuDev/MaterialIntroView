@@ -2,7 +2,6 @@ package co.mobiwise.materialintro;
 
 
 import co.mobiwise.materialintro.shape.Focus;
-import co.mobiwise.materialintro.shape.FocusGravity;
 import co.mobiwise.materialintro.utils.Constants;
 
 public class MaterialIntroConfiguration {
@@ -15,7 +14,7 @@ public class MaterialIntroConfiguration {
 
     private Focus focusType;
 
-    private FocusGravity focusGravity;
+
 
     private int padding;
 
@@ -33,7 +32,7 @@ public class MaterialIntroConfiguration {
         padding = Constants.DEFAULT_TARGET_PADDING;
         colorTextViewInfo = Constants.DEFAULT_COLOR_TEXTVIEW_INFO;
         focusType = Focus.ALL;
-        focusGravity = FocusGravity.CENTER;
+
         isFadeAnimationEnabled = false;
         dismissOnTouch = false;
         isDotViewEnabled = false;
@@ -72,13 +71,9 @@ public class MaterialIntroConfiguration {
         this.focusType = focusType;
     }
 
-    public FocusGravity getFocusGravity() {
-        return focusGravity;
-    }
 
-    public void setFocusGravity(FocusGravity focusGravity) {
-        this.focusGravity = focusGravity;
-    }
+
+
 
     public int getPadding() {
         return padding;
